@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     // TODO: implement initState
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
-    super.initState();
+    super.initState(); 
   }
   @override
   Widget build(BuildContext context) {
