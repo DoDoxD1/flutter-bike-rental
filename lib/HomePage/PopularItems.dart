@@ -1,4 +1,5 @@
 import 'package:bike_rentals/Bike.dart';
+import 'package:bike_rentals/BikePage/BikePage.dart';
 import 'package:flutter/material.dart';
 
 class PopularItems extends StatelessWidget {
@@ -86,14 +87,24 @@ class PopularItems extends StatelessWidget {
               separatorBuilder: (context,_) => SizedBox(width: 13,),
               scrollDirection: Axis.horizontal,
                 itemCount: 6,
-                itemBuilder: (context,index) => buildBikeCard(bikes[index]),
+                itemBuilder: (context,index) => buildBikeCard(context, bike: bikes[index]),
             ),
           ),
         )
       ],
     );
   }
-  Widget buildBikeCard(Bike bike) => Container(
+  Widget buildBikeCard(context, {
+    required Bike bike,
+  }) =>
+      GestureDetector(
+        onTap: (){
+          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => BikePage(item: bike)),
+          );
+      },
+  child: Container(
     height: 225,
     width: 143,
     decoration: BoxDecoration(
@@ -106,19 +117,11 @@ class PopularItems extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 4,),
-        Material(child: Ink.image(
+        Image(
           image: AssetImage(bike.img),
           height: 158,
           width: 292,
-          child: InkWell(
-            // onTap: ()=>Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context)=>BikePage(
-            //           item:bike,
-            // ))),
           ),
-        )),
         Padding(
           padding: const EdgeInsets.only(left: 4),
           child: Text(bike.title,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w700,color: Colors.black),),
@@ -138,6 +141,6 @@ class PopularItems extends StatelessWidget {
         ),
       ],
     ),
-  );
+  ),);
 }
 

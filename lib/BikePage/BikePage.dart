@@ -12,7 +12,9 @@ class BikePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Scaffold(
+        resizeToAvoidBottomInset : false,
+        body: SafeArea(child: SingleChildScrollView(
       child: Column(
         children: [
           MyAppBar(title: "Bike Details"),
@@ -27,6 +29,22 @@ class BikePage extends StatelessWidget {
           )
         ],
       ),
-    );
+    )),
+        bottomNavigationBar: NavigationBarTheme(
+    data: NavigationBarThemeData(
+    indicatorColor: Colors.transparent,
+        labelTextStyle: MaterialStateProperty.all(TextStyle(fontSize: 0))
+    ),
+    child: NavigationBar(
+    height: 47,
+    backgroundColor: Colors.white,
+    destinations: const [
+    NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
+    NavigationDestination(icon: Icon(Icons.map_outlined), label: "Map"),
+    NavigationDestination(icon: Icon(Icons.wallet_outlined), label: "Wallet"),
+    NavigationDestination(icon: Icon(Icons.settings_outlined), label: "Settings"),
+    ],
+    ),
+    ),);
   }
 }

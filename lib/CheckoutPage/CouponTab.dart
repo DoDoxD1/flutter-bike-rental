@@ -21,11 +21,13 @@ class _CouponTabState extends State<CouponTab> {
           ),
           borderRadius: const BorderRadius.all(Radius.circular(10))
       ),
-      child: const TextField(
-        decoration: InputDecoration(
-          hintText: "Apply Coupon",
-          border: InputBorder.none,
-          hintStyle: TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Color(0xFF8C7E7E))
+      child: const Material(
+        child: TextField(
+          decoration: InputDecoration(
+            hintText: "Apply Coupon",
+            border: InputBorder.none,
+            hintStyle: TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Color(0xFF8C7E7E))
+          ),
         ),
       ),
     );

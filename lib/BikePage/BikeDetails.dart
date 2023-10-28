@@ -1,4 +1,5 @@
 import 'package:bike_rentals/Bike.dart';
+import 'package:bike_rentals/CheckoutPage/CheckoutPage.dart';
 import 'package:flutter/material.dart';
 
 class BikeDetails extends StatelessWidget {
@@ -106,25 +107,33 @@ class BikeDetails extends StatelessWidget {
                     Text(bike.maxSpeed,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.black),),
                   ],),
               ),
-              Container(
-                height: 70,
-                width: 200,
-                padding: const EdgeInsets.only(left: 11),
-                decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.all(Radius.circular(20))
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const CheckoutPage())
+                  );
+                },
+                child: Container(
+                  height: 70,
+                  width: 200,
+                  padding: const EdgeInsets.only(left: 11),
+                  decoration: const BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.all(Radius.circular(20))
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Rent",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700,color: Colors.white),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(bike.price,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.white),),
+                          const Text("per day",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300,color: Colors.white),),
+                        ],)
+                    ],),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Rent",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w700,color: Colors.white),),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(bike.price,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.white),),
-                        const Text("per day",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300,color: Colors.white),),
-                      ],)
-                  ],),
               ),
             ],),
         )

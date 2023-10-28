@@ -11,7 +11,11 @@ class MyAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image(image: AssetImage("assets/img.png"), height: 30, width: 29,),
+          GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Image(image: AssetImage("assets/img.png"), height: 30, width: 29,)),
           Container(
               decoration: BoxDecoration(
                   border: Border.all(

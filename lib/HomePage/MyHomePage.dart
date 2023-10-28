@@ -16,7 +16,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      resizeToAvoidBottomInset : false,
+      body: SafeArea(child: Container(
       color: Colors.white,
       child:  SingleChildScrollView(
         child: Padding(
@@ -34,6 +36,22 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-    );
+    )),
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+            indicatorColor: Colors.transparent,
+            labelTextStyle: MaterialStateProperty.all(TextStyle(fontSize: 0))
+        ),
+        child: NavigationBar(
+          height: 47,
+          backgroundColor: Colors.white,
+          destinations: const [
+            NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.map_outlined), label: "Map"),
+            NavigationDestination(icon: Icon(Icons.wallet_outlined), label: "Wallet"),
+            NavigationDestination(icon: Icon(Icons.settings_outlined), label: "Settings"),
+          ],
+        ),
+      ),);
   }
 }
