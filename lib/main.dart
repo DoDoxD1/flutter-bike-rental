@@ -15,16 +15,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final bike = const Bike(
-    img:"assets/Harley.png",
-    title:"Scout Bobber",
-    company:"Indian",
-    available:"Available",
-    price:"1499/",
-    maxSpeed: "124 km/h",
-    displacement: "1133 cc",
-    category: "Cruiser",
-  );
+  // final bike = const Bike(
+  //   img:"assets/Harley.png",
+  //   title:"Scout Bobber",
+  //   company:"Indian",
+  //   available:"Available",
+  //   price:"1499/",
+  //   maxSpeed: "124 km/h",
+  //   displacement: "1133 cc",
+  //   category: "Cruiser",
+  // );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

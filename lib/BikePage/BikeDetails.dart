@@ -62,7 +62,7 @@ class BikeDetails extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text("Displacement",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Color(0xFF8C7E7E)),),
-                        Text(bike.category,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.black),),
+                        Text(bike.displacement,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.black),),
                       ],),),
 
                 ],),
