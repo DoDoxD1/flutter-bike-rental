@@ -1,3 +1,4 @@
+import 'package:bike_rentals/Bike.dart';
 import 'package:flutter/material.dart';
 
 class RecentlyViewed extends StatelessWidget {
@@ -9,24 +10,40 @@ class RecentlyViewed extends StatelessWidget {
       title:"Hayabusa",
       available:"Available",
       price:"2000/",
+      company:"Royal Enfield",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
     const Bike(
       img:"assets/classic.png",
       title:"Classic 350",
       available:"Booked",
       price:"1500/",
+      company:"Royal Enfield",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
     const Bike(
       img:"assets/hayabusa.png",
       title:"Hayabusa",
       available:"Available",
       price:"2000/",
+      company:"Royal Enfield",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
     const Bike(
       img:"assets/classic.png",
       title:"Classic 350",
       available:"Booked",
       price:"1500/",
+      company:"Royal Enfield",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
   ];
 
@@ -102,17 +119,4 @@ class RecentlyViewed extends StatelessWidget {
       ],
     ),
   );
-}
-
-class Bike {
-  final String img;
-  final String title;
-  final String price;
-  final String available;
-  const Bike({
-    required this.img,
-    required this.title,
-    required this.price,
-    required this.available,
-  });
 }

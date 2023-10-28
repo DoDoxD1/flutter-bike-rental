@@ -1,3 +1,4 @@
+import 'package:bike_rentals/Bike.dart';
 import 'package:flutter/material.dart';
 
 class PopularItems extends StatelessWidget {
@@ -8,37 +9,61 @@ class PopularItems extends StatelessWidget {
       img:"assets/meteor.png",
       title:"Meteore",
       company:"Royal Enfield",
+      available:"Available",
       price:"699/",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
     const Bike(
       img:"assets/Harley.png",
       title:"Scout Bobber",
       company:"Indian",
+      available:"Available",
       price:"1499/",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
     const Bike(
       img:"assets/Harley.png",
       title:"Rebel 1100",
       company:"Honda",
+      available:"Available",
       price:"1199/",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
     const Bike(
       img:"assets/meteor.png",
       title:"Meteore",
       company:"Royal Enfield",
+      available:"Available",
       price:"699/",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
     const Bike(
       img:"assets/meteor.png",
       title:"Scout Bobber",
       company:"Indian",
+      available:"Available",
       price:"1499/",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
     const Bike(
       img:"assets/Harley.png",
       title:"Rebel 1100",
       company:"Honda",
+      available:"Available",
       price:"1199/",
+      maxSpeed: "",
+      displacement: "",
+      category: "",
     ),
   ];
 
@@ -81,7 +106,19 @@ class PopularItems extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 4,),
-        Image(image: AssetImage(bike.img),height: 158,width: 292,),
+        Material(child: Ink.image(
+          image: AssetImage(bike.img),
+          height: 158,
+          width: 292,
+          child: InkWell(
+            // onTap: ()=>Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (context)=>BikePage(
+            //           item:bike,
+            // ))),
+          ),
+        )),
         Padding(
           padding: const EdgeInsets.only(left: 4),
           child: Text(bike.title,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w700,color: Colors.black),),
@@ -91,7 +128,7 @@ class PopularItems extends StatelessWidget {
           child: Text(bike.company,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.black),),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(left: 8),
           child: Row(
             children: [
               Text(bike.price,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.black),),
@@ -104,15 +141,3 @@ class PopularItems extends StatelessWidget {
   );
 }
 
-class Bike {
-  final String img;
-  final String title;
-  final String price;
-  final String company;
-  const Bike({
-    required this.img,
-    required this.title,
-    required this.price,
-    required this.company,
-});
-}

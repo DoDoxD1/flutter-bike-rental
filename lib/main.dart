@@ -1,3 +1,5 @@
+import 'package:bike_rentals/Bike.dart';
+import 'package:bike_rentals/BikePage.dart';
 import 'package:flutter/material.dart';
 import 'MyHomePage.dart';
 
@@ -13,11 +15,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  final bike = const Bike(
+    img:"assets/Harley.png",
+    title:"Scout Bobber",
+    company:"Indian",
+    available:"Available",
+    price:"1499/",
+    maxSpeed: "124 km/h",
+    displacement: "1133 cc",
+    category: "Cruiser",
+  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +34,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      home: BikePage(item: bike),
     );
   }
 }
