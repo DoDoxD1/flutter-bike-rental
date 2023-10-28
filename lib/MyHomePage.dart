@@ -1,7 +1,8 @@
 import 'package:bike_rentals/TopRow.dart';
 import 'package:flutter/material.dart';
 import 'Categories.dart';
-import 'SearchBar.dart';
+import 'PopularItems.dart';
+import 'RecentlyViewed.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -17,15 +18,22 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: const Scaffold(
+      child:  Scaffold(
         resizeToAvoidBottomInset : false,
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              TopRow(),
-              MySearchBar(),
-              Categories(),
-            ],
+          child: Padding(
+            padding: EdgeInsets.only(left: 10),
+            child: Column(
+              children: [
+                const TopRow(),
+                // MySearchBar(),
+                const Categories(),
+                const SizedBox(height: 38,),
+                PopularItems(),
+                const SizedBox(height: 26,),
+                RecentlyViewed(),
+              ],
+            ),
           ),
         ),
       ),
