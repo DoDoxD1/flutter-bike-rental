@@ -43,7 +43,7 @@ class RecentlyViewed extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(2),
           child: SizedBox(
-            height: 250,
+            height: 300,
             child: ListView.separated(
               separatorBuilder: (context,_) => SizedBox(height: 20,),
               scrollDirection: Axis.vertical,

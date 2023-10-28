@@ -6,7 +6,7 @@ class TopRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(25),
+      padding: const EdgeInsets.only(top: 25,bottom: 25,left: 10),
       child: Row(
         children: [
           const Image(image: AssetImage("assets/Ellipse.png"),

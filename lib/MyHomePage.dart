@@ -20,20 +20,38 @@ class _MyHomePageState extends State<MyHomePage> {
       color: Colors.white,
       child:  Scaffold(
         resizeToAvoidBottomInset : false,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(left: 10),
-            child: Column(
-              children: [
-                const TopRow(),
-                // MySearchBar(),
-                const Categories(),
-                const SizedBox(height: 38,),
-                PopularItems(),
-                const SizedBox(height: 26,),
-                RecentlyViewed(),
-              ],
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Column(
+                children: [
+                  const TopRow(),
+                  // MySearchBar(),
+                  const Categories(),
+                  const SizedBox(height: 38,),
+                  PopularItems(),
+                  const SizedBox(height: 26,),
+                  RecentlyViewed(),
+                ],
+              ),
             ),
+          ),
+        ),
+        bottomNavigationBar: NavigationBarTheme(
+          data: NavigationBarThemeData(
+              indicatorColor: Colors.transparent,
+              labelTextStyle: MaterialStateProperty.all(TextStyle(fontSize: 0))
+          ),
+          child: NavigationBar(
+            height: 47,
+            backgroundColor: Colors.white,
+            destinations: const [
+              NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
+              NavigationDestination(icon: Icon(Icons.map_outlined), label: "Map"),
+              NavigationDestination(icon: Icon(Icons.wallet_outlined), label: "Wallet"),
+              NavigationDestination(icon: Icon(Icons.settings_outlined), label: "Settings"),
+            ],
           ),
         ),
       ),
