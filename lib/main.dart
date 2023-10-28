@@ -1,5 +1,5 @@
 import 'package:bike_rentals/Bike.dart';
-import 'package:bike_rentals/BikePage/BikePage.dart';
+import 'package:bike_rentals/CheckoutPage/CheckoutPgae.dart';
 import 'package:flutter/material.dart';
 import 'HomePage/MyHomePage.dart';
 
@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         resizeToAvoidBottomInset : false,
-        body: SafeArea(child: BikePage(item: bike)),
+        body: SafeArea(child: CheckoutPage()),
         bottomNavigationBar: NavigationBarTheme(
           data: NavigationBarThemeData(
               indicatorColor: Colors.transparent,
