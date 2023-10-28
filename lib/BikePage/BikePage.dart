@@ -4,6 +4,7 @@ import 'package:bike_rentals/BikePage/AddItems.dart';
 import 'package:flutter/material.dart';
 import 'AppBar.dart';
 import 'BikeDetails.dart';
+import '../MyBottomNavigationBar.dart';
 
 
 class BikePage extends StatelessWidget {
@@ -30,21 +31,6 @@ class BikePage extends StatelessWidget {
         ],
       ),
     )),
-        bottomNavigationBar: NavigationBarTheme(
-    data: NavigationBarThemeData(
-    indicatorColor: Colors.transparent,
-        labelTextStyle: MaterialStateProperty.all(TextStyle(fontSize: 0))
-    ),
-    child: NavigationBar(
-    height: 47,
-    backgroundColor: Colors.white,
-    destinations: const [
-    NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
-    NavigationDestination(icon: Icon(Icons.map_outlined), label: "Map"),
-    NavigationDestination(icon: Icon(Icons.wallet_outlined), label: "Wallet"),
-    NavigationDestination(icon: Icon(Icons.settings_outlined), label: "Settings"),
-    ],
-    ),
-    ),);
+      bottomNavigationBar: MyBottomNavigationBar(),);
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'Categories.dart';
 import 'PopularItems.dart';
 import 'RecentlyViewed.dart';
+import '../MyBottomNavigationBar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -37,21 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     )),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-            indicatorColor: Colors.transparent,
-            labelTextStyle: MaterialStateProperty.all(TextStyle(fontSize: 0))
-        ),
-        child: NavigationBar(
-          height: 47,
-          backgroundColor: Colors.white,
-          destinations: const [
-            NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.map_outlined), label: "Map"),
-            NavigationDestination(icon: Icon(Icons.wallet_outlined), label: "Wallet"),
-            NavigationDestination(icon: Icon(Icons.settings_outlined), label: "Settings"),
-          ],
-        ),
-      ),);
+      bottomNavigationBar: MyBottomNavigationBar(),);
   }
 }
