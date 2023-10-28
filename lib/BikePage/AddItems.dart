@@ -33,6 +33,10 @@ class _AddItemsState extends State<AddItems> {
     ),
   ];
 
+  static var _colorContainer = [Color(0xFFBFC5BF),Color(0xFFBFC5BF),Color(0xFFBFC5BF),Color(0xFFBFC5BF)];
+  static var  _colorText = [Colors.black,Colors.black,Colors.black,Colors.black];
+  static var  _text = ["Add","Add","Add","Add"];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,21 +52,22 @@ class _AddItemsState extends State<AddItems> {
           Padding(
             padding: const EdgeInsets.all(2),
             child: SizedBox(
-              height: 300,
               child: ListView.separated(
                 separatorBuilder: (context,_) => SizedBox(height: 20,),
-                scrollDirection: Axis.vertical,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
                 itemCount: 4,
-                itemBuilder: (context,index) => buildItemsCard(items[index]),
+                itemBuilder: (context,index) => buildItemsCard(items[index],index),
               ),
             ),
-          )
+          ),
+          const SizedBox(height: 18,),
         ],
       ),
     );
   }
 
-  Widget buildItemsCard(Item item) => Container(
+  Widget buildItemsCard(Item item,index) => Container(
     height: 60,
     width: 342,
     decoration: BoxDecoration(
@@ -95,15 +100,28 @@ class _AddItemsState extends State<AddItems> {
         ],),
         Padding(
           padding: EdgeInsets.only(right: 19),
-          child: Container(
-              width: 80,
-              height: 32,
-              decoration: BoxDecoration(
-              color: Color(0xBABABABA),
-                  borderRadius: const BorderRadius.all(Radius.circular(10))
-              ),
+          child: GestureDetector(
+            onTap: (){
+              setState(() {
+                _colorContainer[index] = _colorContainer[index] == Colors.black ?
+                const Color(0xFFBFC5BF) :
+                Colors.black;
+                _colorText[index] = _colorText[index] == Colors.black?
+                    const Color(0xFFBFC5BF):
+                    Colors.black;
+                _text[index] = _text[index] == "Add"? "1":"Add";
+              });
+            },
+            child: Container(
+                width: 80,
+                height: 32,
+                decoration: BoxDecoration(
+                color: _colorContainer[index],
+                    borderRadius: const BorderRadius.all(Radius.circular(10))
+                ),
 
-              child: Center(child: Text("Add",style: TextStyle(fontSize: 15,color: Colors.black),))
+                child: Center(child: Text(_text[index],style: TextStyle(fontSize: 15,color: _colorText[index]),))
+            ),
           ),
         ),
       ],

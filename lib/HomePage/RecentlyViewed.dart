@@ -48,6 +48,16 @@ class RecentlyViewed extends StatelessWidget {
     ),
   ];
 
+  static const _colorMap = {
+    "Available": Colors.black,
+    "Booked": Color(0xFFBFC5BF),
+  };
+
+  static const _colorMapText = {
+    "Available": Colors.white,
+    "Booked": Colors.black,
+  };
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,16 +71,17 @@ class RecentlyViewed extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(2),
           child: SizedBox(
-            height: 300,
             child: ListView.separated(
               separatorBuilder: (context,_) => SizedBox(height: 20,),
-              scrollDirection: Axis.vertical,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
               itemCount: 4,
               itemBuilder: (context,index) => buildBikeCard(context,bikes[index]),
         ),
         ),
-        )],
-    );
+        ),
+        const SizedBox(height: 18,),
+      ],);
   }
 
   Widget buildBikeCard(context, Bike bike) => GestureDetector(
@@ -117,11 +128,11 @@ class RecentlyViewed extends StatelessWidget {
               width: 80,
                 height: 32,
                 decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: _colorMap[bike.available],
                     borderRadius: const BorderRadius.all(Radius.circular(10))
                 ),
 
-                child: Center(child: Text(bike.available,style: TextStyle(fontSize: 15,color: Colors.white),))
+                child: Center(child: Text(bike.available,style: TextStyle(fontSize: 15,color: _colorMapText[bike.available]),))
             ),
           ),
         ],
