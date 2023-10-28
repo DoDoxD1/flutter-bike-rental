@@ -1,7 +1,7 @@
 import 'package:bike_rentals/Bike.dart';
-import 'package:bike_rentals/BikePage.dart';
+import 'package:bike_rentals/BikePage/BikePage.dart';
 import 'package:flutter/material.dart';
-import 'MyHomePage.dart';
+import 'HomePage/MyHomePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +34,26 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: BikePage(item: bike),
+      home: Scaffold(
+        resizeToAvoidBottomInset : false,
+        body: SafeArea(child: BikePage(item: bike)),
+        bottomNavigationBar: NavigationBarTheme(
+          data: NavigationBarThemeData(
+              indicatorColor: Colors.transparent,
+              labelTextStyle: MaterialStateProperty.all(TextStyle(fontSize: 0))
+          ),
+          child: NavigationBar(
+            height: 47,
+            backgroundColor: Colors.white,
+            destinations: const [
+              NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
+              NavigationDestination(icon: Icon(Icons.map_outlined), label: "Map"),
+              NavigationDestination(icon: Icon(Icons.wallet_outlined), label: "Wallet"),
+              NavigationDestination(icon: Icon(Icons.settings_outlined), label: "Settings"),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

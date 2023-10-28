@@ -1,6 +1,7 @@
 
 import 'package:bike_rentals/Bike.dart';
 import 'package:flutter/material.dart';
+import 'AppBar.dart';
 
 
 class BikePage extends StatelessWidget {
@@ -9,6 +10,10 @@ class BikePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text(item.title),);
+    return Column(
+      children: [
+        MyAppBar(title: "Bike Details"),
+      ],
+    );
   }
 }
