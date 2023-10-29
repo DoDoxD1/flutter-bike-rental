@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DateTab extends StatefulWidget {
   const DateTab({super.key});
@@ -8,15 +9,51 @@ class DateTab extends StatefulWidget {
 }
 
 class _DateTabState extends State<DateTab> {
+
+  static var _startDate=DateFormat('dd-MM-yyyy').format(DateTime.now());
+  static var _endDate=DateFormat('dd-MM-yyyy').format(_dateEnd);
+  static var _dateStart = DateTime.now();
+  static var _dateEnd = DateTime(_dateStart.year, _dateStart.month, _dateStart.day+4);
+
+  void _showDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: _dateStart,
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2025),
+    ).then((value) => {
+      setState((){
+        _dateStart = value!;
+        _startDate = DateFormat('dd-MM-yyyy').format(value!);
+      })
+    });
+
+  }
+
+  void _showDatePickerEnd() {
+    showDatePicker(
+      context: context,
+      initialDate: _dateEnd,
+      firstDate: _dateStart,
+      lastDate: DateTime(2025),
+    ).then((value) => {
+      setState((){
+        _dateEnd = value!;
+        _endDate = DateFormat('dd-MM-yyyy').format(value!);
+      })
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 32),
+      margin: const EdgeInsets.only(top: 32),
       height: 183,
       width: 330,
-      decoration: BoxDecoration(
-          color: const Color(0xFFC4C4C4),
-          borderRadius: const BorderRadius.all(Radius.circular(30))
+      decoration: const BoxDecoration(
+          color: Color(0xFFC4C4C4),
+          borderRadius: BorderRadius.all(Radius.circular(30))
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -24,17 +61,17 @@ class _DateTabState extends State<DateTab> {
           Container(
             height: 70,
             width: 296,
-            decoration: BoxDecoration(
-                color: const Color(0xFFE5E5E5),
-                borderRadius: const BorderRadius.all(Radius.circular(30))
+            decoration: const BoxDecoration(
+                color: Color(0xFFE5E5E5),
+                borderRadius: BorderRadius.all(Radius.circular(30))
             ),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 23,
                       width: 175,
                       child: Text("Start Date",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Color(0xFF8C7E7E)),),
@@ -42,28 +79,30 @@ class _DateTabState extends State<DateTab> {
                     SizedBox(
                       height: 23,
                       width: 175,
-                      child: Text("09-06-2021",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Colors.black),),
+                      child: Text(_startDate,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Colors.black),),
                     ),
                   ],),
-                Image(image: AssetImage("assets/calendar.png"),height: 30,width: 32,),
+                GestureDetector(
+                    onTap: _showDatePicker,
+                    child: Image(image: AssetImage("assets/calendar.png"),height: 30,width: 32,)),
               ],
             ),
           ),
-          SizedBox(height: 9,),
+          const SizedBox(height: 9,),
           Container(
             height: 70,
             width: 296,
-            decoration: BoxDecoration(
-                color: const Color(0xFFE5E5E5),
-                borderRadius: const BorderRadius.all(Radius.circular(30))
+            decoration: const BoxDecoration(
+                color: Color(0xFFE5E5E5),
+                borderRadius: BorderRadius.all(Radius.circular(30))
             ),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 23,
                       width: 175,
                       child: Text("End Date",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Color(0xFF8C7E7E)),),
@@ -71,10 +110,12 @@ class _DateTabState extends State<DateTab> {
                     SizedBox(
                       height: 23,
                       width: 175,
-                      child: Text("12-06-2021",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Colors.black),),
+                      child: Text(_endDate,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Colors.black),),
                     ),
                   ],),
-                Image(image: AssetImage("assets/calendar.png"),height: 30,width: 32,),
+                GestureDetector(
+                    onTap: _showDatePickerEnd,
+                    child: Image(image: AssetImage("assets/calendar.png"),height: 30,width: 32,)),
               ],
             ),
           )
