@@ -12,17 +12,20 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget build(BuildContext context) {
     return NavigationBarTheme(
       data: NavigationBarThemeData(
-          indicatorColor: Colors.transparent,
+          indicatorColor: Colors.white,
           labelTextStyle: MaterialStateProperty.all(TextStyle(fontSize: 0))
       ),
       child: NavigationBar(
         height: 47,
+        elevation: 10.0,
+        shadowColor: Colors.black,
         backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home_outlined), label: "Home"),
-          NavigationDestination(icon: Icon(Icons.map_outlined), label: "Map"),
-          NavigationDestination(icon: Icon(Icons.wallet_outlined), label: "Wallet"),
-          NavigationDestination(icon: Icon(Icons.settings_outlined), label: "Settings"),
+          NavigationDestination(icon: Image(image: AssetImage("assets/home.png"),height:30,width:30), label: "Home"),
+          NavigationDestination(icon: Image(image: AssetImage("assets/maps.png"),height:30,width:30), label: "Maps"),
+          NavigationDestination(icon: Image(image: AssetImage("assets/card.png"),height:30,width:30), label: "Cards"),
+          NavigationDestination(icon: Image(image: AssetImage("assets/settings.png"),height:30,width:30), label: "Settings"),
         ],
       ),
     );
