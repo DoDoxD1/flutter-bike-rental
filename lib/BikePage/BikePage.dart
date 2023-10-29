@@ -20,23 +20,29 @@ class _BikePageState extends State<BikePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const MyAppBar(title: "Bike Details"),
-            Container(
-                margin: const EdgeInsets.only(top: 20),
-                child: Column(
-                  children: [
-                    BikeDetails(bike: widget.item),
-                    const SizedBox(
-                      height: 36,
-                    ),
-                    const AddItems(),
-                  ],
-                ))
-          ],
-        ),
+          child: Column(
+        children: [
+          const MyAppBar(title: "Bike Details"),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                      margin: const EdgeInsets.only(top: 20),
+                      child: Column(
+                        children: [
+                          BikeDetails(bike: widget.item),
+                          const SizedBox(
+                            height: 36,
+                          ),
+                          const AddItems(),
+                        ],
+                      ))
+                ],
+              ),
+            ),
+          ),
+        ],
       )),
       bottomNavigationBar: const MyBottomNavigationBar(),
     );

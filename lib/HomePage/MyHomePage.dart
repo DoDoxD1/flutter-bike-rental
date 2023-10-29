@@ -20,30 +20,34 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-          child: Container(
-        color: Colors.white,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Column(
-              children: [
-                const TopRow(),
-                const MySearchBar(),
-                const Categories(),
-                const SizedBox(
-                  height: 38,
+          child: Column(
+        children: [
+          const TopRow(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10,),
+                    const MySearchBar(),
+                    const Categories(),
+                    const SizedBox(
+                      height: 38,
+                    ),
+                    PopularItems(),
+                    const SizedBox(
+                      height: 26,
+                    ),
+                    RecentlyViewed(),
+                  ],
                 ),
-                PopularItems(),
-                const SizedBox(
-                  height: 26,
-                ),
-                RecentlyViewed(),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       )),
-      bottomNavigationBar: MyBottomNavigationBar(),
+      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

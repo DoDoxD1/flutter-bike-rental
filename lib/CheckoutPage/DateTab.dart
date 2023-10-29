@@ -24,7 +24,7 @@ class _DateTabState extends State<DateTab> {
     ).then((value) => {
           setState(() {
             _dateStart = value!;
-            _startDate = DateFormat('dd-MM-yyyy').format(value!);
+            _startDate = DateFormat('dd-MM-yyyy').format(value);
           })
         });
   }
@@ -38,7 +38,7 @@ class _DateTabState extends State<DateTab> {
     ).then((value) => {
           setState(() {
             _dateEnd = value!;
-            _endDate = DateFormat('dd-MM-yyyy').format(value!);
+            _endDate = DateFormat('dd-MM-yyyy').format(value);
           })
         });
   }

@@ -19,16 +19,25 @@ class _CheckoutPageState extends State<CheckoutPage> {
     return const Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              MyAppBar(title: "Check Out"),
-              DateTab(),
-              CouponTab(),
-              DetailsTab(),
-              PayButton(),
-            ],
-          ),
+        child: Column(
+          children: [
+            MyAppBar(title: "Check Out"),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    DateTab(),
+                    CouponTab(),
+                    DetailsTab(),
+                    PayButton(),
+                    SizedBox(
+                      height: 20,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
