@@ -13,11 +13,11 @@ class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 15,
+      elevation: 0,
       shadowColor: Colors.black12,
       child: Container(
-        margin: const EdgeInsets.only(top: 31),
-        padding: const EdgeInsets.only(bottom: 10),
+        margin: const EdgeInsets.only(top: 15),
+        padding: const EdgeInsets.only(bottom: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

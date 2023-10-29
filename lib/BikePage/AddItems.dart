@@ -16,19 +16,19 @@ class _AddItemsState extends State<AddItems> {
     const Item(img: "assets/boots.png", title: "Riding Boots", price: "800/"),
   ];
 
-  static const _colorContainer = [
+  static var _colorContainer = [
     Color(0xFFBFC5BF),
     Color(0xFFBFC5BF),
     Color(0xFFBFC5BF),
     Color(0xFFBFC5BF)
   ];
-  static final _colorText = [
+  static var _colorText = [
     Colors.black,
     Colors.black,
     Colors.black,
     Colors.black
   ];
-  static final _text = ["Add", "Add", "Add", "Add"];
+  static var _text = ["Add", "Add", "Add", "Add"];
 
   @override
   Widget build(BuildContext context) {
