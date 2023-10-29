@@ -1,3 +1,5 @@
+import 'package:bike_rentals/HomePage/SearchBar.dart';
+
 import 'TopRow.dart';
 import 'package:flutter/material.dart';
 import 'Categories.dart';
@@ -26,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 const TopRow(),
-                // MySearchBar(),
+                const MySearchBar(),
                 const Categories(),
                 const SizedBox(
                   height: 38,
