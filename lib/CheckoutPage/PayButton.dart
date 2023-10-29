@@ -13,16 +13,20 @@ class _PayButtonState extends State<PayButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25,right: 25),
+      padding: const EdgeInsets.only(left: 25, right: 25),
       child: Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 20),
         height: 64,
         width: 330,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Colors.black,
-            borderRadius: const BorderRadius.all(Radius.circular(20))
-        ),
-        child: Center(child: Text("PAY",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 30,color: Colors.white),)),
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        child: const Center(
+            child: Text(
+          "PAY",
+          style: TextStyle(
+              fontWeight: FontWeight.w700, fontSize: 30, color: Colors.white),
+        )),
       ),
     );
   }

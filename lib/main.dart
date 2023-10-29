@@ -1,5 +1,3 @@
-import 'package:bike_rentals/Bike.dart';
-import 'package:bike_rentals/BikePage/BikePage.dart';
 import 'package:flutter/material.dart';
 import 'HomePage/MyHomePage.dart';
 
@@ -34,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }

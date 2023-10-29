@@ -1,4 +1,3 @@
-
 class Bike {
   final String img;
   final String title;
@@ -8,6 +7,7 @@ class Bike {
   final String category;
   final String displacement;
   final String maxSpeed;
+
   const Bike({
     required this.img,
     required this.title,

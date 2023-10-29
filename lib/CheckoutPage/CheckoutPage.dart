@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'DateTab.dart';
 import 'CouponTab.dart';
 import 'DetailsTab.dart';
-import 'PayButon.dart';
+import 'PayButton.dart';
 import '../MyBottomNavigationBar.dart';
 
 class CheckoutPage extends StatefulWidget {
@@ -16,18 +16,22 @@ class CheckoutPage extends StatefulWidget {
 class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        resizeToAvoidBottomInset : false,
-        body: const SafeArea(child: SingleChildScrollView(
-        child: Column(children: [
-        MyAppBar(title: "Check Out"),
-        DateTab(),
-        CouponTab(),
-        DetailsTab(),
-        PayButton(),
-      ],),
-    ),),
-    bottomNavigationBar: MyBottomNavigationBar(),
+    return const Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              MyAppBar(title: "Check Out"),
+              DateTab(),
+              CouponTab(),
+              DetailsTab(),
+              PayButton(),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: MyBottomNavigationBar(),
     );
   }
 }
