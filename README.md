@@ -4,7 +4,12 @@ Srchout Software Internship Assignment
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The project contains three screens as mentioned in the Figma file.
+You can visit the second screen(i.e.) bike details page by clicking any bike on the home page in the recently viewed and popular items section.
+All the values like title, speed and rent pricing are dynamic on both the homepage and bike details page and are based upon dummy data values that I have picked.
+You can visit the third screen(i.e.) checkout page by clicking on the rent button.
+All buttons like rent and add items are working.
+Also, the calendar date picker and the payment button are working fine.
 
 A few resources to get you started if this is your first Flutter project:
 
