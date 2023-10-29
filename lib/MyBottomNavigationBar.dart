@@ -1,3 +1,4 @@
+import 'package:bike_rentals/HomePage/MyHomePage.dart';
 import 'package:flutter/material.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
@@ -8,15 +9,26 @@ class MyBottomNavigationBar extends StatefulWidget {
 }
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
+  int index = 0;
+
+  final screens = [
+    "Home",
+    "Map",
+    "Wallet",
+    "Settings",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return NavigationBarTheme(
       data: NavigationBarThemeData(
           indicatorColor: Colors.white,
-          labelTextStyle: MaterialStateProperty.all(const TextStyle(fontSize: 0))),
+          labelTextStyle:
+              MaterialStateProperty.all(const TextStyle(fontSize: 0))),
       child: NavigationBar(
         height: 47,
         elevation: 10.0,
+        selectedIndex: index,
         shadowColor: Colors.black,
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white,
@@ -40,6 +52,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                   width: 30),
               label: "Settings"),
         ],
+        onDestinationSelected: (index) => setState(() {
+          this.index = index;
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text("Opening ${screens[index]}"),
+          ));
+        }),
       ),
     );
   }

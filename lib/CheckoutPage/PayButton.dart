@@ -13,7 +13,7 @@ class _PayButtonState extends State<PayButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("Payment Successful"),
         ));
